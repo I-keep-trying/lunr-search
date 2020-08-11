@@ -6,7 +6,10 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { rhythm } from "../utils/typography"
 
-const BlogIndex = ({ data, location }) => {
+// experimental
+//import SearchWidget from "./components/searchwidget"
+
+const BlogIndex = ({ data, location, element }) => {
   const siteTitle = data.site.siteMetadata.title
   const posts = data.allMarkdownRemark.edges
 
@@ -14,6 +17,9 @@ const BlogIndex = ({ data, location }) => {
     <Layout location={location} title={siteTitle}>
       <SEO title="All posts" />
       <Bio />
+      {/*       <SearchWidget /> */}
+      {/*       <SearchForm />
+       */}{" "}
       {posts.map(({ node }) => {
         const title = node.frontmatter.title || node.fields.slug
         return (
